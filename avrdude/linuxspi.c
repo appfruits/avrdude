@@ -148,7 +148,7 @@ static int linuxspi_gpio_op_wr(PROGRAMMER* pgm, LINUXSPI_GPIO_OP op, int gpio, c
     switch(op)
     {
         case LINUXSPI_GPIO_DIRECTION:
-            sprintf(fn, "/sys/class/gpio/gpio%d/direction", gpio);
+            sprintf(fn, "/sys/class/gpio/pioA%d/direction", gpio);
             break;
         case LINUXSPI_GPIO_EXPORT:
             sprintf(fn, "/sys/class/gpio/export");
@@ -157,7 +157,7 @@ static int linuxspi_gpio_op_wr(PROGRAMMER* pgm, LINUXSPI_GPIO_OP op, int gpio, c
             sprintf(fn, "/sys/class/gpio/unexport");
             break;
         case LINUXSPI_GPIO_VALUE:
-            sprintf(fn, "/sys/class/gpio/gpio%d/value", gpio);
+            sprintf(fn, "/sys/class/gpio/pioA%d/value", gpio);
             break;
         default:
             fprintf(stderr, "%s: linuxspi_gpio_op_wr(): Unknown op %d", progname, op);
